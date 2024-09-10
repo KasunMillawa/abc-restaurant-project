@@ -5,42 +5,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List Staff</title>
+    <title>Gallery List</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Staff List</h1>
+        <h1 class="text-center mb-4">Gallery List</h1>
 
-        <!-- Staff Table -->
+        <!-- Gallery Table -->
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Role</th>
-                        <th>Action</th>
+                        <th>Image</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="staff" items="${staffList}">
+                    <c:forEach var="gallery" items="${galleries}">
                         <tr>
-                            <td>${staff.staffId}</td>
-                            <td>${staff.name}</td>
-                            <td>${staff.email}</td>
-                            <td>${staff.phoneNumber}</td>
-                            <td>${staff.role}</td>
-                            <td>
-                                <a href="staff?action=delete&id=${staff.staffId}" class="btn btn-sm btn-danger">Delete</a>
+                            <td>${gallery.galleryId}</td>
+                            <td><img src="${gallery.image}" alt="Gallery Image" class="img-thumbnail" style="width: 100px; height: auto;"></td>
+                            <td class="actions">
+                                <a href="gallery?action=edit&id=${gallery.galleryId}" class="btn btn-sm btn-primary">Edit</a>
+                                <a href="gallery?action=delete&id=${gallery.galleryId}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this image?');">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
+        </div>
+
+        <!-- Add New Image Button -->
+        <div class="text-center">
+            <a href="gallery?action=add" class="btn btn-success">Add New Image</a>
         </div>
     </div>
 

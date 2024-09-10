@@ -5,177 +5,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styles/admin.css">
-    <style>
-        /* General Page Styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        /* Header Styling */
-        .header {
-            background-color: #333; /* Updated color */
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        /* Sidebar Styling */
-        .sidebar {
-            background-color: #333; /* Updated color */
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 250px;
-            padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar a {
-            padding: 15px 20px;
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            display: block;
-            transition: background-color 0.3s ease;
-        }
-
-        .sidebar a:hover {
-            background-color: #ff4949; /* Updated color */
-        }
-
-        /* Main Content Styling */
-        .main-content {
-            margin-left: 250px; /* Space for the sidebar */
-            padding: 20px;
-            flex: 1;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-content h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #333; /* Updated color */
-        }
-
-        .admin-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .admin-actions a {
-            display: block;
-            width: calc(33.333% - 20px);
-            padding: 15px;
-            background-color: #ff6b6b; /* Updated color */
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .admin-actions a:hover {
-            background-color: #ff4949; /* Updated color */
-        }
-
-        /* Footer Styling */
-        .footer {
-            background-color: #333; /* Updated color */
-            color: white;
-            text-align: center;
-            padding: 15px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Media Queries for Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                box-shadow: none;
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .admin-actions a {
-                width: 100%;
-            }
-        }
-    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
 
     <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <a href="#">Dashboard</a>
-        <a href="admin?action=listProducts">Manage Products</a>
-        <a href="admin?action=listCustomers">Manage Customers</a>
-        <a href="admin?action=listStaff">Manage Staff</a>
-        <a href="admin?action=listReservations">Manage Reservations</a>
-        <a href="admin?action=listQueries">Manage Queries</a>
-        <a href="admin?action=listOrders">Manage Orders</a>
-        <a href="admin?action=listServices">Manage Services</a>
-        <a href="admin?action=listOffers">Manage Offers</a>
-        <a href="admin?action=listGalleries">Manage Galleries</a>
-        <a href="admin?action=logout">Logout</a>
-    </div>
+    <nav class="bg-dark text-white p-3 position-fixed vh-100" style="width: 250px;">
+        <h4 class="text-center">Admin Panel</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link text-white">Dashboard</a></li>
+            <li class="nav-item"><a href="admin?action=listProducts" class="nav-link text-white">Manage Products</a></li>
+            <li class="nav-item"><a href="admin?action=listCustomers" class="nav-link text-white">Manage Customers</a></li>
+            <li class="nav-item"><a href="admin?action=listStaff" class="nav-link text-white">Manage Staff</a></li>
+            <li class="nav-item"><a href="admin?action=listReservations" class="nav-link text-white">Manage Reservations</a></li>
+            <li class="nav-item"><a href="admin?action=listQueries" class="nav-link text-white">Manage Queries</a></li>
+            <li class="nav-item"><a href="admin?action=listOrders" class="nav-link text-white">Manage Orders</a></li>
+            <li class="nav-item"><a href="admin?action=listServices" class="nav-link text-white">Manage Services</a></li>
+            <li class="nav-item"><a href="admin?action=listOffers" class="nav-link text-white">Manage Offers</a></li>
+            <li class="nav-item"><a href="admin?action=listGalleries" class="nav-link text-white">Manage Galleries</a></li>
+            <li class="nav-item"><a href="admin?action=logout" class="nav-link text-white">Logout</a></li>
+        </ul>
+    </nav>
 
     <!-- Main Content Area -->
-    <div class="main-content">
-        <div class="header">
-            <a href="index.html">Home</a>
-            <h1>Welcome, Admin!</h1>
-        </div>
+    <div class="main-content bg-white p-4" style="margin-left: 250px;">
+        <header class="mb-4">
+            <h1 class="h3">Welcome, Admin!</h1>
+        </header>
 
         <!-- Admin Actions -->
-        <div class="admin-actions">
-            <a href="admin?action=listProducts">Manage Products</a>
-            <a href="admin?action=listCustomers">Manage Customers</a>
-            <a href="admin?action=listStaff">Manage Staff</a>
-            <a href="admin?action=listReservations">Manage Reservations</a>
-            <a href="admin?action=listQueries">Manage Queries</a>
-            <a href="admin?action=listOrders">Manage Orders</a>
-            <a href="admin?action=listServices">Manage Services</a>
-            <a href="admin?action=listOffers">Manage Offers</a>
-            <a href="admin?action=listGalleries">Manage Galleries</a>
-            <a href="admin?action=logout">Logout</a>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listProducts" class="text-white text-decoration-none">Manage Products</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listCustomers" class="text-white text-decoration-none">Manage Customers</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listStaff" class="text-white text-decoration-none">Manage Staff</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listReservations" class="text-white text-decoration-none">Manage Reservations</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listQueries" class="text-white text-decoration-none">Manage Queries</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listOrders" class="text-white text-decoration-none">Manage Orders</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listServices" class="text-white text-decoration-none">Manage Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listOffers" class="text-white text-decoration-none">Manage Offers</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=listGalleries" class="text-white text-decoration-none">Manage Galleries</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <a href="admin?action=logout" class="text-white text-decoration-none">Logout</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Footer Section -->
-    <div class="footer">
+    <footer class="bg-dark text-white text-center p-3 mt-auto">
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
-    </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
