@@ -21,7 +21,6 @@ public class AdminController extends HttpServlet {
     private StaffDAO staffDAO;
     private ReservationDAO reservationDAO;
     private QueryDAO queryDAO;
-    private OrderDAO orderDAO;
     private ServiceDAO serviceDAO;
     private OfferDAO offerDAO;
     private GalleryDAO galleryDAO;
@@ -34,7 +33,6 @@ public class AdminController extends HttpServlet {
         staffDAO = new StaffDAO();
         reservationDAO = new ReservationDAO();
         queryDAO = new QueryDAO();
-        orderDAO = new OrderDAO();
         serviceDAO = new ServiceDAO();
         offerDAO = new OfferDAO();
         galleryDAO = new GalleryDAO();
@@ -79,9 +77,7 @@ public class AdminController extends HttpServlet {
             case "listQueries":
                 showList(request, response, queryDAO.getAllQueries(), "queries", "WEB-INF/view/listQueries.jsp");
                 break;
-            case "listOrders":
-                showList(request, response, orderDAO.getAllOrders(), "orders", "WEB-INF/view/listOrders.jsp");
-                break;
+            
             case "listServices":
                 showList(request, response, serviceDAO.getAllServices(), "services", "WEB-INF/view/listServices.jsp");
                 break;
